@@ -36,7 +36,7 @@ public class AIValidatorPlugin implements QueryPlugin {
     public AbstractQuery execute(AbstractQuery query) {
         boolean isValidQuery = this.validator.validateQuery(query.getQuery());
         if(!isValidQuery) {
-            throw new QueryValidationException();
+            throw new QueryValidationException("Supplied query is not valid");
         }
         return query;
     }
