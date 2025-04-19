@@ -12,14 +12,14 @@ public class DuckDbQuery extends AbstractQuery {
     public void paginate(Integer pageSize, Integer pageNumber) {
         if(pageNumber != null && pageSize != null) {
             int calculatedOffset = (Math.max(pageNumber, 1)) * pageSize;
-            this.setQuery(String.format("SELECT * FROM (%s) LIMIT %d OFFSET %d", this.query, pageSize, calculatedOffset));
+            this.setQuery(String.format("SELECT * FROM (%s) LIMIT %d OFFSET %d", this.getQuery(), pageSize, calculatedOffset));
         }
     }
 
     @Override
     public void sort(String column, SortDirection sortDirection) {
         if(StringUtils.isNotBlank(column) && sortDirection != null) {
-            this.setQuery(String.format("SELECT * FROM (%s) ORDER BY %s %S", this.query, column, sortDirection.toString()));
+            this.setQuery(String.format("SELECT * FROM (%s) ORDER BY %s %S", this.getQuery(), column, sortDirection.toString()));
         }
     }
 
@@ -28,7 +28,7 @@ public class DuckDbQuery extends AbstractQuery {
         String createQuery = String.format("""
                 CREATE TABLE IF NOT EXISTS %s AS
                     SELECT * FROM read_csv('%s');
-                """, this.alias, this.sourceFile);
+                """, this.getAlias(), this.getSourceFile());
         queryExecutor.accept(createQuery);
     }
 

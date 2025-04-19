@@ -1,4 +1,10 @@
 package dev.engineeringmadness.hephaestus.core.domain;
 
-public abstract class AbstractQuery extends QueryMetadata implements Queryable{
+import lombok.Data;
+
+@Data
+public abstract class AbstractQuery implements Queryable{
+    private String query;
+    private String sourceFile;
+    private String alias;
 }
