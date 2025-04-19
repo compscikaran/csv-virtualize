@@ -10,6 +10,7 @@ import java.util.function.Consumer;
 @Data
 public class DuckDbQuery extends AbstractQuery {
 
+    @Override
     public void paginate(Integer pageSize, Integer pageNumber) {
         if(pageNumber != null && pageSize != null) {
             int calculatedOffset = (Math.max(pageNumber, 1)) * pageSize;
