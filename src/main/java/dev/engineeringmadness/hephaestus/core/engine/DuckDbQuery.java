@@ -1,4 +1,4 @@
-package dev.engineeringmadness.hephaestus.core.duckdb;
+package dev.engineeringmadness.hephaestus.core.engine;
 
 import dev.engineeringmadness.hephaestus.core.domain.AbstractQuery;
 import dev.engineeringmadness.hephaestus.core.domain.QueryDto;

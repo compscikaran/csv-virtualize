@@ -1,4 +1,4 @@
-package dev.engineeringmadness.hephaestus.core.duckdb;
+package dev.engineeringmadness.hephaestus.core.engine;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

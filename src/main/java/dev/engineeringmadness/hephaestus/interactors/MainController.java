@@ -2,9 +2,8 @@ package dev.engineeringmadness.hephaestus.interactors;
 
 import dev.engineeringmadness.hephaestus.core.domain.AbstractQuery;
 import dev.engineeringmadness.hephaestus.core.domain.QueryDto;
-import dev.engineeringmadness.hephaestus.core.duckdb.DuckDbQuery;
 import dev.engineeringmadness.hephaestus.core.domain.SortDirection;
-import dev.engineeringmadness.hephaestus.core.duckdb.EngineConfig;
+import dev.engineeringmadness.hephaestus.core.engine.EngineConfig;
 import dev.engineeringmadness.hephaestus.core.executions.QueryExecutorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
