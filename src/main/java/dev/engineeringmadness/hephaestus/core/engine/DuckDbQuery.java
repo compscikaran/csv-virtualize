@@ -1,6 +1,7 @@
-package dev.engineeringmadness.hephaestus.core.duckdb;
+package dev.engineeringmadness.hephaestus.core.engine;
 
 import dev.engineeringmadness.hephaestus.core.domain.AbstractQuery;
+import dev.engineeringmadness.hephaestus.core.domain.QueryDto;
 import dev.engineeringmadness.hephaestus.core.domain.SortDirection;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
@@ -30,6 +31,10 @@ public class DuckDbQuery extends AbstractQuery {
                     SELECT * FROM read_csv('%s');
                 """, this.getAlias(), this.getSourceFile());
         queryExecutor.accept(createQuery);
+    }
+
+    public DuckDbQuery(QueryDto queryDto) {
+        super(queryDto);
     }
 
 }
