@@ -34,6 +34,13 @@ public class DuckDbQuery extends AbstractQuery {
         queryExecutor.accept(createQuery);
     }
 
+    @Override
+    public void limit(Integer top) {
+        if(top != null) {
+            this.setQuery(String.format("SELECT * FROM (%s) LIMIT %d", this.getQuery(), top));
+        }
+    }
+
     public DuckDbQuery(QueryDto queryDto) {
         super(queryDto);
     }
