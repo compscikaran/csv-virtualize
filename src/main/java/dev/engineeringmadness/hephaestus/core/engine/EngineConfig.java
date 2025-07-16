@@ -14,24 +14,15 @@ import javax.sql.DataSource;
 @Configuration
 public class EngineConfig {
 
-    @Value("${hephaestus.engine}")
-    private String engine;
-
     @Bean
     public DataSource dataSource() {
-        switch (engine) {
-            case "duckdb" -> {
-                HikariConfig config = new HikariConfig();
-                config.setDriverClassName("org.duckdb.DuckDBDriver");
-                config.setMaximumPoolSize(10);
-                config.setMaxLifetime(3);
-                config.setJdbcUrl("jdbc:duckdb:hephaestusdb");
-                HikariDataSource ds = new HikariDataSource(config);
-                return ds;
-            }
-            default -> throw new IllegalArgumentException("Invalid Engine configuration");
-        }
-
+        HikariConfig config = new HikariConfig();
+        config.setDriverClassName("org.duckdb.DuckDBDriver");
+        config.setMaximumPoolSize(10);
+        config.setMaxLifetime(3);
+        config.setJdbcUrl("jdbc:duckdb:hephaestusdb");
+        HikariDataSource ds = new HikariDataSource(config);
+        return ds;
     }
 
     @Bean
@@ -39,14 +30,5 @@ public class EngineConfig {
         JdbcTemplate template = new JdbcTemplate();
         template.setDataSource(dataSource);
         return template;
-    }
-
-    public AbstractQuery createQueryCommand(QueryDto dto) {
-        switch (engine) {
-            case "duckdb" -> {
-                return new DuckDbQuery(dto);
-            }
-            default -> throw new IllegalArgumentException("Invalid Engine configuration");
-        }
     }
 }

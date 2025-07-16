@@ -53,18 +53,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>dev.langchain4j</groupId>
-			<artifactId>langchain4j-anthropic</artifactId>
-			<version>1.0.0-beta3</version>
-		</dependency>
-
-		<dependency>
-			<groupId>dev.langchain4j</groupId>
-			<artifactId>langchain4j</artifactId>
-			<version>1.0.0-beta3</version>
-		</dependency>
-
-		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.17.0</version>

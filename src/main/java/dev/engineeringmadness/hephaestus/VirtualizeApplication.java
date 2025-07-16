@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HephaestusApplication {
+public class VirtualizeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HephaestusApplication.class, args);
+		SpringApplication.run(VirtualizeApplication.class, args);
 	}
 
 }
