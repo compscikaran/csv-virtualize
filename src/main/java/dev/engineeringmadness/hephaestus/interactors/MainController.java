@@ -24,14 +24,11 @@ public class MainController {
     @Autowired
     private QueryExecutorService queryExecutorService;
 
-    @Autowired
-    private EngineConfig engineConfig;
-
     @PostMapping(ENDPOINT)
     public ResponseEntity<QueryResult> getResults(@RequestBody QueryDto dto, HttpServletRequest request) {
         DuckDbQuery command = new DuckDbQuery(dto);
         SliceParameters parameters = new SliceParameters(request);
-        List<HashMap<String, Object>> data = queryExecutorService.executeQuery(command, dto, parameters);
+        List<HashMap<String, Object>> data = this.queryExecutorService.executeQuery(command, dto, parameters);
         if(data.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
